@@ -58,6 +58,18 @@ GEM
       zeitwerk (~> 2.1, >= 2.1.4)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    aws-eventstream (1.0.3)
+    aws-partitions (1.183.0)
+    aws-sdk-core (3.58.0)
+      aws-eventstream (~> 1.0, >= 1.0.2)
+      aws-partitions (~> 1.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-ssm (1.52.0)
+      aws-sdk-core (~> 3, >= 3.58.0)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.1.0)
+      aws-eventstream (~> 1.0, >= 1.0.2)
     bindex (0.7.0)
     builder (3.2.3)
     byebug (11.0.1)
@@ -81,6 +93,10 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
+    jmespath (1.4.0)
+    lamby (0.6.0)
+      rack
+      rails
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -178,9 +194,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk-ssm
   byebug
   capybara (>= 2.15)
   jbuilder (~> 2.5)
+  lamby
   rails (~> 6.0.0.rc1)
   sass-rails (~> 5)
   selenium-webdriver
