@@ -5,7 +5,7 @@ set -e
 rm -rf ./.aws-sam/build
 
 # Ensure native extensions built for platform.
-pipenv run sam build --use-container
+sam build --use-container
 
 # [HOOK] Environments & Configuration
 # https://github.com/customink/lamby/issues/28

@@ -8,14 +8,14 @@ export CLOUDFORMATION_BUCKET=${CLOUDFORMATION_BUCKET:="lamby.cloudformation.$(wh
 ./bin/build
 
 export VPCID=${VPCID:=$(
-  pipenv run aws ec2 describe-vpcs \
+  aws ec2 describe-vpcs \
     --output text \
     --filters 'Name=state,Values=available' \
     --query 'Vpcs[0].VpcId'
 )}
 
 export SUBNETS=${SUBNETS:=$(
-  pipenv run aws ec2 describe-subnets \
+  aws ec2 describe-subnets \
     --output text \
     --filters "Name=state,Values=available,Name=vpc-id,Values=$VPCID" \
     --query 'Subnets[*].SubnetId' | \
